@@ -1,0 +1,161 @@
+/* body{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+#container{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background:linear-gradient(rgb(42, 42, 244),rgb(42, 213, 248),rgb(95, 229, 244));
+
+}
+.shadow{
+     filter: drop-shadow(8px 12px 10px rgba(0, 0, 0, 0.34));
+    display: inline-block;
+
+}
+.mango{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    z-index: 1;
+    height: 157px;
+    border: 2px solid white;
+    width: 150px;
+    background: linear-gradient(rgb(222, 123, 42),rgb(224, 154, 24),rgb(222, 232, 28),rgb(118, 197, 14));
+    background-color: rgb(18, 18, 18);
+    text-shadow: black;
+    clip-path:path("M 3,62 A 67,70,0,0,1 114,20 A 86,72,0,0,1 112,102 A 10,10,0,0,0 119,118 A 49,19,0,0,1 114,137 A 90,17,0,0,0 118,135 A 81,66,0,0,1 78,151 A 67,76,0,0,1 6,49 Z");
+    /* filter: drop-shadow(8px 12px 10px rgba(0, 0, 0, 0.34));
+}
+#uppermango{
+    position: relative;
+    left: 130px; 
+    z-index: 1;
+    top: 56px;
+    
+}
+#lowermango{
+    position: relative;
+    left: 320px; 
+    top: 56px;
+    z-index: 0;
+    border-radius:70px 90px 50px 90px ;
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    /* FIXED: Added display properties so centering actually works */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+#container {
+    /* FIXED: Changed to flexbox to smoothly manage the layout inside */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows mangoes to stack vertically on small screens */
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    /* Provides clean, fluid spacing between both fruits */
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgb(42, 42, 244), rgb(42, 213, 248), rgb(95, 229, 244));
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.shadow {
+    filter: drop-shadow(8px 12px 10px rgba(0, 0, 0, 0.34));
+    display: inline-block;
+    /* FIXED: Removed raw absolute positions to let flex layout position them */
+    position: relative;
+}
+
+.mango {
+    /* FIXED: Changed from absolute to relative to keep them sitting perfectly inside .shadow */
+    position: relative;
+    height: 157px;
+    width: 150px;
+    border: 2px solid white;
+    background: linear-gradient(rgb(222, 123, 42), rgb(224, 154, 24), rgb(222, 232, 28), rgb(118, 197, 14));
+    clip-path: path("M 3,62 A 67,70,0,0,1 114,20 A 86,72,0,0,1 112,102 A 10,10,0,0,0 119,118 A 49,19,0,0,1 114,137 A 90,17,0,0,0 118,135 A 81,66,0,0,1 78,151 A 67,76,0,0,1 6,49 Z");
+}
+
+#uppermango {
+    right: 140px;
+    z-index: 1;
+    top: 56px;
+}
+
+#lowermango {
+    z-index: 0;
+    left: 89px;
+    top: 56px;
+    /* REMOVED: border-radius cut out because it interferes with clip-path rendering */
+}
+
+/* #lowerstick{
+    clip-path: path("M 10,0 A 10,22,0,0,1 20,0 A 1,5,0,0,0 15,39 A 6,17,0,0,1 10,38 Z");
+} */
+#stick {
+    position: absolute;
+    left: -390px;
+    bottom: -89px;
+    margin: 0;
+    padding: 0;
+    width: 531px;
+    height: 150px;
+    background-color: rgb(165, 61, 42);
+    background: radial-gradient(black, rgb(173, 57, 57, 0.792), rgb(110, 10, 10), brown);
+    z-index: 1;
+    clip-path: path("M 0,0 L 280,0 L 289,16 L 162,10 L 166,43 A 10,18,0,0,1 160,45 L 156,8 L 145,10 L 139,60 A 6,7,0,0,1 133,50 L 138,9 L 8,5 Z")
+}
+
+#leaf {
+    position: absolute;
+    left: -386px;
+    bottom: -125px;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 150px;
+    background-color: rgb(31, 181, 69);
+    background: linear-gradient(rgb(3, 56, 3), rgb(11, 150, 11), rgb(171, 235, 10), yellow);
+    z-index: 1;
+    clip-path: path("M 123,0 A 40,11,0,0,1 124,-1 A 85,67,0,0,1 155,13 A 71,54,0,0,1 162,59 A 9,25,0,0,0 155,41 A 7,29,10,0,1 165,48 A -33,49,0,0,1 167,87 A 70,130,0,0,0 148,159 A 0,96,0,0,1 153,50 A 77,74,0,0,0 125,4 A 24,6,0,0,1 116,2 L 89,10 A 10,10,0,0,1 43,28 A 55,10,0,0,1 72,43 A 29,41,0,0,0 50,63 A 31,65,0,0,1 32,103 A 73,72,0,0,0 24,146 A 29,82,0,0,1 20,87 A 65,76,0,0,0 21,52 A 6,6,0,0,1 74,41 A 37,75,0,0,0 47,76 A 15,34,0,0,1 39,21 A 82,27,0,0,0 89,10 Z");
+
+}
+/* #h1{
+    position: relative;
+    align-content: center;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(248, 241, 241); 
+    text-align: center;
+    font-size: 20vw;
+    z-index: 0;
+    bottom: 90px;
+    flex-wrap: wrap;
+    
+}*/
+/* #text{
+    position: absolute;
+    font-size: 10vw;
+    color: rgb(194, 160, 160);
+} */
